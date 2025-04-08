@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Your Gift 🎁</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="payment-page">
+    <div class="container">
+        <img src="https://cdn-icons-png.flaticon.com/512/3185/3185478.png" class="floating-gift" alt="Gift Icon">
+        
+        <form class="payment-form" action="/process_payment" method="POST">
+            <h2>Make It Rain Happiness! 💸🌈</h2>
+            
+            <div class="form-group">
+                <label>Gift Amount (KES):</label>
+                <input type="number" name="amount" min="1" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Your Phone Number:</label>
+                <input type="tel" name="phone" value="{{ phone }}" required>
+            </div>
+            
+            <button type="submit" class="payment-button">
+                <span class="spinner"></span>
+                Send Gift via M-Pesa 🚀
+            </button>
+        </form>
+    </div>
+</body>
+</html>

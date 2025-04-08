@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Celebration!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="landing">
+    <div class="container">
+        <h1 class="animate__animated animate__bounce">🎉 Happy Birthday! 🎂</h1>
+        <form action="/message" method="POST">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="tel" name="phone" value="{{ phone | replace('0', '254', 1) }}" required>
+            <button type="submit">Join Celebration!</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="response-page">
+    <div class="container">
+
+        {% if success %}
+        <div class="success-message">
+            <h2>Almost There! 📲</h2>
+            <p>Check your phone to complete payment via M-Pesa</p>
+            <div class="loader"></div>
+            <p class="small">Transaction ID: {{ session.checkout_request_id }}</p>
+        </div>
+        {% else %}
+        <div class="error-message">
+            <div class="error-icon">❌</div>
+            <h2>Payment Failed</h2>
+            <p>Don't worry! Maybe try:</p>
+            <ul>
+                <li>Checking your M-Pesa balance</li>
+                <li>Confirming the phone number</li>
+                <li>Trying again in 2 minutes</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
